@@ -141,7 +141,7 @@ h2 {
 
 /* Producto 1: La Clásica (Foto roja que enviaste) */
 .producto-clasica {
-    background-image: url('clasica.jpeg'); 
+    background-image: url('clasica.jpg'); 
 }
 
 /* Producto 2: Fuego Valyrio (Se queda la verde de stock por ahora) */
@@ -151,7 +151,7 @@ h2 {
 
 /* Producto 3: El Touchdown (Foto azul que enviaste) */
 .producto-touchdown-azul {
-    background-image: url('touchdown.jpeg');
+    background-image: url('touchdown.jpg');
 }
 
 /* --- Capa oscura sobre las imágenes --- */
