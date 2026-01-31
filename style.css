@@ -1,4 +1,4 @@
-/* Reset básico */
+/* === ESTILOS GENERALES === */
 * {
     margin: 0;
     padding: 0;
@@ -9,15 +9,15 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: #1a1a1a; /* Fondo oscuro */
     color: #f0f0f0;
+    scroll-behavior: smooth; /* Desplazamiento suave entre secciones */
 }
 
-/* Tipografía de títulos */
-h1, h2, .logo {
+h1, h2, h3, .logo {
     font-family: 'Bebas Neue', cursive;
     letter-spacing: 2px;
 }
 
-/* Navegación */
+/* === NAVEGACIÓN === */
 nav {
     display: flex;
     justify-content: space-between;
@@ -27,11 +27,12 @@ nav {
     position: sticky;
     top: 0;
     z-index: 100;
+    border-bottom: 2px solid #ff4500;
 }
 
 .logo {
-    font-size: 1.5rem;
-    color: #ff4500; /* Naranja rojizo */
+    font-size: 1.8rem;
+    color: #ff4500;
 }
 
 nav ul {
@@ -44,12 +45,18 @@ nav a {
     text-decoration: none;
     color: white;
     font-weight: bold;
+    transition: color 0.3s;
 }
 
-/* Header Hero */
+nav a:hover {
+    color: #ff4500;
+}
+
+/* === HEADER HERO === */
 header {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1572569603847-a8a292850720?q=80&w=1974&auto=format&fit=crop'); /* Imagen genérica de bebidas */
+    height: 85vh;
+    /* Imagen de fondo genérica de fiesta/bebidas oscuras */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1556679343-c7306c1976bc?q=80&w=1974&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -59,120 +66,204 @@ header {
 }
 
 .hero-content h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     margin-bottom: 10px;
     color: #ff4500;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
 }
 
-/* Botones */
+/* === BOTONES === */
 .btn {
-    padding: 10px 30px;
+    padding: 12px 35px;
     background-color: #ff4500;
     color: white;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 1.1rem;
     transition: 0.3s;
+    display: inline-block;
 }
 
 .btn:hover {
-    background-color: #e63e00;
+    background-color: #ff6a00;
     transform: scale(1.05);
+    box-shadow: 0 0 15px #ff4500;
 }
 
-/* Secciones Generales */
+/* === SECCIONES === */
 .container {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
 h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 3rem;
+    margin-bottom: 50px;
     color: #ff4500;
+    text-transform: uppercase;
 }
 
-/* Grid de Productos */
-.grid-productos {
+/* === GRID DE PRODUCTOS CON FONDO === */
+.grid-productos-fondo {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
+    /* Ajuste para que se vean bien 3 elementos centrados */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-.card {
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 10px;
-    transition: 0.3s;
-    border: 1px solid #333;
+.card-fondo {
+    position: relative;
+    height: 400px; /* Un poco más altas para que luzcan */
+    border-radius: 15px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, border 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
 }
 
-.card:hover {
+.card-fondo:hover {
+    transform: translateY(-10px);
     border-color: #ff4500;
 }
 
-.icono-bebida {
-    font-size: 3rem;
-    margin-bottom: 10px;
+/* --- IMÁGENES ESPECÍFICAS (ACTUALIZADO CON TUS FOTOS REALES) --- */
+
+/* Producto 1: La Clásica (Foto roja que enviaste) */
+.producto-clasica {
+    background-image: url('clasica.jpeg'); 
 }
 
-.card h3 {
-    margin-bottom: 10px;
-    color: #ffae00;
+/* Producto 2: Fuego Valyrio (Se queda la verde de stock por ahora) */
+.producto-fuego-verde {
+    background-image: url('https://images.unsplash.com/photo-1560512823-829485b8bf24?q=80&w=1974&auto=format&fit=crop');
 }
 
-.precio {
-    display: block;
-    margin-top: 15px;
-    font-size: 1.2rem;
+/* Producto 3: El Touchdown (Foto azul que enviaste) */
+.producto-touchdown-azul {
+    background-image: url('touchdown.jpeg');
+}
+
+/* --- Capa oscura sobre las imágenes --- */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradado de negro a transparente para leer el texto */
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.2) 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 25px;
+    transition: 0.3s;
+}
+
+.card-fondo:hover .overlay {
+    /* Al pasar el mouse, el fondo se vuelve un poco naranja */
+    background: linear-gradient(to top, rgba(255, 69, 0, 0.9) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.overlay h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px black;
+}
+
+.overlay p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.overlay .precio {
+    font-size: 1.8rem;
+    color: #ffae00; /* Amarillo dorado */
     font-weight: bold;
-    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    padding: 5px 15px;
+    border-radius: 20px;
+    align-self: flex-start;
 }
 
-/* Banner Intermedio */
+/* === BANNER PROMO === */
 .banner-promo {
     background-color: #ff4500;
+    background-image: linear-gradient(45deg, #ff4500, #ff6a00);
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 50px 20px;
+    margin-top: 40px;
 }
 
 .banner-promo h2 {
     color: white;
+    margin-bottom: 20px;
 }
 
-/* Contacto y Botón WhatsApp */
+/* === CONTACTO Y WHATSAPP === */
+.contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
 .btn-whatsapp {
     display: inline-block;
-    margin-top: 20px;
-    background-color: #25D366; /* Verde WhatsApp */
+    margin-top: 30px;
+    background-color: #25D366;
     color: white;
-    padding: 15px 30px;
+    padding: 15px 40px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 50px;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    transition: 0.3s;
 }
 
-/* Footer */
+.btn-whatsapp:hover {
+    background-color: #20bd5a;
+    transform: scale(1.05);
+}
+
+/* === FOOTER === */
 footer {
     background-color: black;
     text-align: center;
-    padding: 20px;
-    font-size: 0.8rem;
+    padding: 30px;
+    margin-top: 50px;
+    border-top: 2px solid #333;
+}
+footer p {
     color: #777;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 600px) {
+/* === RESPONSIVO (Móviles) === */
+@media (max-width: 768px) {
     .hero-content h1 {
+        font-size: 3rem;
+    }
+    h2 {
         font-size: 2.5rem;
+    }
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .card-fondo {
+        height: 300px;
     }
 }
